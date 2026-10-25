@@ -37,6 +37,7 @@ module Slim
     filter :ControlFlow
     filter :MultiFlattener
     filter :StaticMerger
+    filter :DynamicMerger
     use(:Generator) { options[:generator] }
   end
 end
