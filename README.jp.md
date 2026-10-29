@@ -1059,7 +1059,12 @@ HTTP ストリーミングをサポートしているバージョンの Rails �
 レンダリング時間は増加するでしょう。ストリーミングを無効化したい場合, 以下のように設定します:
 
 ~~~ ruby
-Slim::RailsTemplate.set_options streaming: false
+# config/initializers/slim.rb
+Rails.application.config.after_initialize do
+  ActiveSupport.on_load(:action_view) do
+    Slim::RailsTemplate.set_options streaming: false
+  end
+end
 ~~~
 
 ### Angular2
